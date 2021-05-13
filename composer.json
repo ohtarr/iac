@@ -1,0 +1,28 @@
+{
+    "name": "ohtarr/iac",
+    "type": "library",
+    "description": "PHP7 library to manage IAC deployments",
+    "keywords": [
+        "php7",
+        "iac"
+        ],
+    "homepage": "http://github.com/ohtarr/iac",
+    "authors": [
+        {
+            "name": "ohtarr",
+            "email": "composer@ohtarr.com",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "ohtarr\\": "lib/"
+        }
+    }
+}
