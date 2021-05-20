@@ -26,9 +26,9 @@
  * @license   http://www.gnu.org/copyleft/lesser.html The GNU LESSER GENERAL PUBLIC LICENSE, Version 3.0
  */
 
-namespace ohtarr;
+namespace Ohtarr;
 
-class govc
+class Govc
 {
     public $hostname;
     public $host;
@@ -310,14 +310,18 @@ class govc
 
     public function createDisk($datastore,$diskname,$sizegb)
     {
-
         shell_exec("govc datastore.disk.create -dc=\"{$this->dc}\" -ds=\"{$datastore}\" -size {$sizegb}GB {$diskname}");
     }
 
     public function deleteDisk($datastore,$diskname)
     {
-
         shell_exec("govc datastore.rm -dc=\"{$this->dc}\" -ds=\"{$datastore}\" {$diskname}");
+    }
+
+    public function deployVm($vmspecfile,$datastore,$pool,$ova_file)
+    {
+        $cmd = "govc import.ova -options=\"{$vmspecfile}\" -dc=\"{$this->dc}\" -ds=\"{$datastore}\" -pool=\"{$pool}\" {$ova_file}";
+        shell_exec($cmd);
     }
 
 }

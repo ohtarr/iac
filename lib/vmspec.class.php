@@ -26,9 +26,9 @@
  * @license   http://www.gnu.org/copyleft/lesser.html The GNU LESSER GENERAL PUBLIC LICENSE, Version 3.0
  */
 
-namespace ohtarr;
+namespace Ohtarr;
 
-class vmspec
+class Vmspec
 {
     public $hostname;
     public $network;
@@ -44,24 +44,25 @@ class vmspec
         $this->userdata = $userdata;
     }
 
-    public function getTemplate($json)
+/*     public function getTemplate($json)
     {
         $object = json_decode($json);
         $this->template = $object;
         return $object;
-    }
+    } */
 
-    public function getTemplateFile($file)
+    public static function getTemplateFile($file)
     {
         $json = file_get_contents($file);
         $object = json_decode($json);
-        $this->template = $object;
+        //$this->template = $object;
         return $object;
     }
 
-    public function generateVmSpec()
+    public function generateVmSpec($file)
     {
-        $object = $this->template;
+        $object = self::getTemplateFile($file);
+
         $base64 = base64_encode($this->userdata);
 
         $object->PropertyMapping[1]->Value = $this->hostname;

@@ -26,9 +26,9 @@
  * @license   http://www.gnu.org/copyleft/lesser.html The GNU LESSER GENERAL PUBLIC LICENSE, Version 3.0
  */
 
-namespace ohtarr;
+namespace Ohtarr;
 
-class userdata
+class Userdata
 {
 
     public $userdatain;
